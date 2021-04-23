@@ -15,23 +15,22 @@ import uz.test.api.network.Resource
 import uz.test.api.repository.IBroRepository
 import uz.test.api.utils.Event
 
-class LandingPageViewModel constructor(private val repository: IBroRepository):ViewModel(){
-    val postAccessToken=MutableLiveData<Event<Resource<ResultAccessToken>>>()
-    val getGeneralData=MutableLiveData<Event<Resource<GeneralInfo>>>()
+class LandingPageViewModel constructor(private val repository: IBroRepository) : ViewModel() {
+    val postAccessToken = MutableLiveData<Event<Resource<ResultAccessToken>>>()
+    val getGeneralData = MutableLiveData<Event<Resource<GeneralInfo>>>()
 
-    fun postAccessToken(body:PostAccessToken){
+    fun postAccessToken(body: PostAccessToken) {
         viewModelScope.launch {
             repository.postAccessToken(body).onEach {
-                Log.d("worksdd","saveValue")
-                postAccessToken.value= Event(it)
+                postAccessToken.value = Event(it)
             }
                 .launchIn(viewModelScope)
         }
     }
 
-    fun getGeneralInfo(token:String){
+    fun getGeneralInfo(token: String) {
         viewModelScope.launch {
-            repository.getGeneralData(token).onEach { getGeneralData.value=Event(it) }
+            repository.getGeneralData(token).onEach { getGeneralData.value = Event(it) }
                 .launchIn(viewModelScope)
         }
     }

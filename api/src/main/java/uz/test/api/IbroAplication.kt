@@ -63,7 +63,6 @@ class IbroAplication : MultiDexApplication() {
                         }
 
                 clientBuilder.addInterceptor(ChuckInterceptor(context))
-            Log.d("worksdd","chunck")
 
             val retrofit= Retrofit.Builder()
                 .baseUrl(BASE_URL)
