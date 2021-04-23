@@ -1,0 +1,4 @@
+include ':view'
+include ':api'
+include ':app'
+rootProject.name = "TestIpro"

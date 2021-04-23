@@ -1,0 +1,9 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="logotype">ЛОГОТИП</string>
+    <string name="overallBonus">%s бонусов</string>
+    <string name="calories">%s сгорит</string>
+    <string name="receivedBonuses">%s бонусов</string>
+
+</resources>
